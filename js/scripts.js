@@ -1,4 +1,14 @@
 //business end
+var myMovie;
+
+function getMovie(userMovie) {
+  moviesArray.forEach(function(movie) {
+    if (movie.movieName === userMovie) {
+      myMovie = movie;
+    };
+  });
+};
+
 function Ticket(movieName, timeOfDay, userAge) {
   this.movieName = movieName;
   this.timeOfDay = timeOfDay;
@@ -16,7 +26,8 @@ var moviesArray = [
   new Movie("Lady Bird", true),
   new Movie("Star Wars: The Last Jedi", false),
   new Movie("Kung Fu Hustle", false),
-  new Movie("Baby Driver", false)
+  new Movie("Baby Driver", false),
+  new Movie("Princess Bride", false)
 ];
 
 //loop through moviesArray and fill Select form with each title
@@ -29,18 +40,27 @@ function fillMovieForm(moviesArray){
 }
 
 //check the .userAge property of an object. Add some amount to the .price property of that object, depending on the value of object.userAge
-function calcPrice(object) {
+function calcPrice(ticket, movie) {
 
-  if(object.userAge == "child"){
-    object.price += 5;
+//look at userAge and adjust price accordingly
+  if(ticket.userAge == "child"){
+    ticket.price += 5;
   }
-  else if (object.userAge == "adult"){
-    object.price += 8;
+  else if (ticket.userAge == "adult"){
+    ticket.price += 8;
   }
-  else if (object.userAge == "senior"){
-    object.price += 5;
+  else if (ticket.userAge == "senior"){
+    ticket.price += 5;
   }
 
+  //if the movie is a new release, add 3 to ticket price
+  if(movie.newRelease == true){
+    ticket.price += 3;
+  }
+
+  if(ticket.timeOfDay == "eveningShow") {
+    ticket.price += 5;
+  }
 }
 
 
@@ -58,10 +78,13 @@ $(document).ready(function(){
     var timeOfDay = $("#timeOfDay").val();
     var userAge = $("#userAge").val();
 
+    getMovie(movieName);
+    console.log(myMovie);
+
     var newTicket = new Ticket(movieName, timeOfDay, userAge);
     console.log(newTicket);
 
-    calcPrice(newTicket);
+    calcPrice(newTicket, myMovie);
     console.log(newTicket);
 
 
