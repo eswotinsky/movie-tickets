@@ -9,6 +9,42 @@
     <title>Movie Tickets</title>
   </head>
   <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Movie Tickets</h1>
+      </div>
+    <form id="orderTicket">
+
+      <div class="form-group">
+        <h3>Select Your Movie</h3>
+        <select id="movieName">
+          <option value="shapeOfWater">The Shape of Water</option>
+          <option value="ladyBird">Lady Bird</option>
+          <option value="starWars">Star Wars: The Last Jedi</option>
+          <option value="kungFuHustle">Kung Fu Hustle</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+          <h3>Select A Time</h3>
+          <select id="timeOfDay">
+            <option value="matineeShow">Matinee</option>
+            <option value="eveningShow">Evening</option>
+          </select>
+      </div>
+
+      <div class="form-group">
+        <h3>Enter Your Age:</h3>
+        <select id="userAge">
+          <option value="child">Child (17 and under)</option>
+          <option value="adult">Adult (18-64)</option>
+          <option value="senior">Senior (65+)</option>
+        </select>
+      </div>
+
+      <button type="submit" name="button" class = "btn btn-primary">Confirm</button>
+
+    </div>
 
   </body>
 </html>
