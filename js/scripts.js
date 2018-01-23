@@ -1,6 +1,7 @@
 //business end
 var myMovie;
 
+//pointer to reference specified Movie object. To have easy access to new release variable.
 function getMovie(userMovie) {
   moviesArray.forEach(function(movie) {
     if (movie.movieName === userMovie) {
@@ -30,6 +31,7 @@ var moviesArray = [
   new Movie("Princess Bride", false)
 ];
 
+//to check and see if all forms have been selected
 function formCheck(movie, time, age) {
   if(movie == "none" || time == "none" || age == "none"){
     alert("Oops! Please check your selections again.");
@@ -87,6 +89,7 @@ $(document).ready(function(){
     var timeOfDay = $("#timeOfDay").val();
     var userAge = $("#userAge").val();
 
+    //if any fields are not selected, alert user. Otherwise, display purchaseConfirmation div
     if (formCheck(movieName, timeOfDay, userAge) == true){
       $(".purchaseConfirmation").show();
     }
@@ -95,19 +98,18 @@ $(document).ready(function(){
     };
 
     getMovie(movieName);
-    console.log(myMovie);
+    //console.log(myMovie);
 
     var newTicket = new Ticket(movieName, timeOfDay, userAge);
-    console.log(newTicket);
+    //console.log(newTicket);
 
     calcPrice(newTicket, myMovie);
-    console.log(newTicket);
+    //console.log(newTicket);
 
     $("#confirmMovie").text(newTicket.movieName);
     $("#confirmTime").text(newTicket.timeOfDay);
     $("#confirmPrice").text(newTicket.price);
 
   })
-
 
 })

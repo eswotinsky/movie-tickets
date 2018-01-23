@@ -1,7 +1,20 @@
 .jumbotron {
+  margin-bottom: 0%;
+  background-image: url(../img/popcorn.jpg);
+  height: 350px;
+  background-size: cover;
+  background-position: center 55%;
   text-align: center;
+  color: white;
+  font-family: fantasy;
+
+}
+
+h1 {
+  font-size: 120px;
 }
 
 .purchaseConfirmation {
   display: none;
+  background-color: #D2DFE6;
 }
