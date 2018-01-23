@@ -58,7 +58,7 @@ function calcPrice(ticket, movie) {
     ticket.price += 3;
   }
 
-  if(ticket.timeOfDay == "eveningShow") {
+  if(ticket.timeOfDay == "Evening") {
     ticket.price += 5;
   }
 }
@@ -73,6 +73,7 @@ $(document).ready(function(){
   $("form#orderTicket").submit(function(event){
     event.preventDefault();
 
+    $(".purchaseConfirmation").show();
 
     var movieName = $("#movieName").val();
     var timeOfDay = $("#timeOfDay").val();
@@ -87,6 +88,9 @@ $(document).ready(function(){
     calcPrice(newTicket, myMovie);
     console.log(newTicket);
 
+    $("#confirmMovie").text(newTicket.movieName);
+    $("#confirmTime").text(newTicket.timeOfDay);
+    $("#confirmPrice").text(newTicket.price);
 
   })
 

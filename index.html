@@ -14,34 +14,54 @@
         <h1>Movie Tickets</h1>
       </div>
     <form id="orderTicket">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <h3>Select Your Movie</h3>
+            <select id="movieName">
+              <option value="none"></option>
+            </select>
+          </div>
+        </div>
 
-      <div class="form-group">
-        <h3>Select Your Movie</h3>
-        <select id="movieName">
+        <div class="col-md-4">
+        <div class="form-group">
+              <h3>Select A Time</h3>
+              <select id="timeOfDay">
+                <option value="none"></option>
+                <option value="Matinee">Matinee</option>
+                <option value="Evening">Evening</option>
+              </select>
+          </div>
+        </div>
 
-        </select>
+        <div class="col-md-4">
+          <div class="form-group">
+            <h3>Enter Your Age:</h3>
+            <select id="userAge">
+              <option value="none"></option>
+              <option value="child">Child (17 and under)</option>
+              <option value="adult">Adult (18-64)</option>
+              <option value="senior">Senior (65+)</option>
+            </select>
+          </div>
+        </div>
       </div>
+      <hr>
+      <button type="submit" name="button" class = "btn btn-primary">Confirm Purchase</button>
 
-      <div class="form-group">
-          <h3>Select A Time</h3>
-          <select id="timeOfDay">
-            <option value="matineeShow">Matinee</option>
-            <option value="eveningShow">Evening</option>
-          </select>
+      <div class="purchaseConfirmation">
+        <br>
+        <p><b>Thank you for your purchase. Your order is confirmed.</b></p>
+
+        <p>View your ticket details below.</p>
+
+        <p><b>Movie:</b> <span id="confirmMovie"></span></p>
+        <p><b>Time:</b> <span id="confirmTime"></span></p>
+        <p><b>Price:</b> $<span id="confirmPrice"></span>.00</p>
+
       </div>
-
-      <div class="form-group">
-        <h3>Enter Your Age:</h3>
-        <select id="userAge">
-          <option value="child">Child (17 and under)</option>
-          <option value="adult">Adult (18-64)</option>
-          <option value="senior">Senior (65+)</option>
-        </select>
-      </div>
-
-      <button type="submit" name="button" class = "btn btn-primary">Confirm</button>
 
     </div>
-
   </body>
 </html>
