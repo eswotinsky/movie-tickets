@@ -30,6 +30,16 @@ var moviesArray = [
   new Movie("Princess Bride", false)
 ];
 
+function formCheck(movie, time, age) {
+  if(movie == "none" || time == "none" || age == "none"){
+    alert("Oops! Please check your selections again.");
+    return false;
+  }
+  else {
+    return true;
+  }
+}
+
 //loop through moviesArray and fill Select form with each title
 function fillMovieForm(moviesArray){
   var i = 0;
@@ -73,11 +83,16 @@ $(document).ready(function(){
   $("form#orderTicket").submit(function(event){
     event.preventDefault();
 
-    $(".purchaseConfirmation").show();
-
     var movieName = $("#movieName").val();
     var timeOfDay = $("#timeOfDay").val();
     var userAge = $("#userAge").val();
+
+    if (formCheck(movieName, timeOfDay, userAge) == true){
+      $(".purchaseConfirmation").show();
+    }
+    else {
+      $(".purchaseConfirmation").hide();
+    };
 
     getMovie(movieName);
     console.log(myMovie);
